@@ -1,0 +1,196 @@
+@app-bg:#ffffff;
+@toolbar-height:56px;
+@header-height:24px;
+@close-img-height:14px;
+@close-img-width:@close-img-height;
+@text-head-theme:#444444;
+@border-color:#BDBDBD;
+@content-bg:#F8F8F8;
+@que-text-color:rgba(68, 68, 68, 0.54);
+@que-border:rgba(68, 68, 68, 0.32);
+@que-select:rgba(117, 216, 224, 0.1);
+@que-select-border:#2EBAC6;
+@green:#46B520;
+@green-bg:rgba(143, 242, 109, 0.1);
+@red:#B72319;
+@red-bg:rgba(207, 102, 95, 0.1);
+html{
+  background: @app-bg;
+  font-family: 'Rubik', sans-serif;
+}
+body{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.status-bar{
+  background:@app-bg;
+  height:@header-height;
+}
+.toolbar {
+  height: @toolbar-height;
+  width: 100%;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2), 0 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  .close-modal {
+    background: url("../images/close.svg") center no-repeat;
+    height: @close-img-height;
+    width: @close-img-width;
+    flex:0 0 4em;
+  }
+  .modal-head {
+    p {
+      font-size: 20px;
+      font-weight: 500;
+    }
+  }
+}
+.canvas-wrapper{
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.content-wrapper {
+  min-height: 360px;
+  border-top: 1px solid @border-color;
+  border-bottom: 1px solid @border-color;
+  background: @content-bg;
+  margin-top: 16px;
+  .question {
+    min-height: 70px;
+    .content {
+      padding: 0px 10px;
+      h4 {
+        font-size: 14px;
+        font-weight: 700;
+        font-family: 'Merriweather', serif;
+        color: @que-text-color;
+      }
+      p {
+        font-size: 14px;
+        color: @text-head-theme;
+      }
+    }
+
+  }
+  .answer {
+    div{
+      &[data-value="correct"]{
+        label{
+          min-height: 145px;
+          .valid-msg{
+            display: block;
+          }
+          div{
+            h4{
+              display: block;
+            }
+          }
+        }
+        input[type="radio"] {
+          display: none;
+          &:checked + label {
+            background: @green-bg;
+            border-bottom: 4px solid @green;
+          }
+        }
+        span{
+          &:first-child{
+            background: @green;
+          }
+        }
+      }
+      &[data-value="incorrect"]{
+        label{
+
+        }
+        input[type="radio"] {
+          display: none;
+          &:checked + label {
+            background: @red-bg;
+            border-bottom: 4px solid @red;
+            span{
+              &:first-child{
+                background: @red;
+              }
+            }
+          }
+        }
+
+      }
+    }
+    input[type="radio"] {
+      display: none;
+      &:checked + label {
+        background: @que-select;
+        border-bottom: 4px solid @que-select-border;
+      }
+    }
+    span {
+      &:first-child {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: @que-text-color;
+        font-family: 'Merriweather', serif;
+        text-align: center;
+        font-size: 12px;
+        color: @app-bg;
+        margin: 0px 10px;
+      }
+    }
+    label {
+      display: flex;
+      min-height: 72px;
+      border-top: 0.5px solid @que-text-color;
+      align-items: center;
+      font-size: 14px;
+      color: @text-head-theme;
+       div {
+        &.ans {
+          display: flex;
+          align-items: center;
+        }
+         h4{
+           display: none;
+           color:@green;
+           font-family: 'Montserrat', sans-serif;
+           text-transform: uppercase;
+           font-size: 8px;
+           margin-left:10px;
+         }
+      }
+      .valid-msg{
+        display: none;
+        margin-left:45px;
+        p{
+          &:first-child{
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: bold;
+            line-height: 17px;
+          }
+          font-family: 'Rubik', sans-serif;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+.config-wrapper{
+  height:50px;
+  border-top:1px solid @border-color;
+  border-bottom:1px solid @border-color;
+  button{
+    background: @border-color;
+    color:@app-bg;
+    width: 100%;
+    height:50px;
+    border:none;
+  }
+}

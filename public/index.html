@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mobile Quiz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" />
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<div class="status-bar"></div>
+<div class="canvas-wrapper">
+    <div class="toolbar">
+       <div class="close-modal"></div>
+        <div class="modal-head"><p>Module 2</p></div>
+    </div>
+    <div class="content-wrapper">
+      <div class="question">
+          <div class="content">
+              <h4>Q1</h4>
+              <p>What is the full-form of GST</p>
+          </div>
+      </div>
+        <div class="answer">
+            <div class="valid-ans" data-value="default">
+
+                <input type="radio" id="supply" name="answer" class="correct">
+                <label for="supply">
+                    <div>
+                        <h4>Correct Answer</h4>
+                    <div class="ans"><span>A</span> <span>Good and Supply Tax</span></div>
+                    <div class="valid-msg"><p>Explanation</p><p>The correct answer</p></div>
+                    </div>
+                </label>
+
+            </div>
+            <div class="invalid-ans" data-value="default">
+                <input type="radio" id="service" name="answer" class="incorrect">
+                <label for="service"><span>B</span> <span>Goods and Services Tax</span></label>
+            </div>
+            <div class="invalid-ans" data-value="default">
+                <input type="radio" id="goods" name="answer" class="incorrect">
+                <label for="goods"><span>C</span> <span>Good and Service Tax</span></label>
+            </div>
+            <div class="invalid-ans" data-value="default">
+                <input type="radio" id="greet" name="answer" class="incorrect">
+                <label for="greet"><span>D</span> <span>Greet Service Tax</span></label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="config-wrapper">
+<button type="submit" class="submit">Check</button>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
